@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: SmartTicket Feedback API
+  version: 1.0.0
+  description: REST API for feedback submission, analysis, and analytics.
+servers:
+  - url: http://localhost:5031
+paths:
+  /api/feedback:
+    get:
+      summary: List feedback
+      parameters:
+        - in: query
+          name: email
+          schema:
+            type: string
+          description: Filter by user email
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  feedback:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Feedback'
+    post:
+      summary: Submit feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackInput'
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  id:
+                    type: string
+                  sentiment:
+                    type: string
+                  confidence:
+                    type: number
+                  category:
+                    type: string
+  /api/feedback-summary:
+    get:
+      summary: Feedback summary analytics
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  total:
+                    type: integer
+                  avgRating:
+                    type: number
+                  avgConfidence:
+                    type: number
+                  sentiments:
+                    type: object
+                  byService:
+                    type: object
+                  byCategory:
+                    type: object
+                  trend:
+                    type: object
+components:
+  schemas:
+    FeedbackInput:
+      type: object
+      properties:
+        name: { type: string }
+        email: { type: string }
+        bookingId: { type: string }
+        serviceType: { type: string, example: Movie }
+        platform: { type: string, example: Website }
+        rating: { type: integer, minimum: 0, maximum: 10 }
+        message: { type: string }
+        date: { type: string, example: '2025-11-07' }
+        location: { type: string }
+    Feedback:
+      allOf:
+        - $ref: '#/components/schemas/FeedbackInput'
+        - type: object
+          properties:
+            id: { type: string }
+            sentiment: { type: string, enum: [Positive, Neutral, Negative] }
+            confidence: { type: number }
+            category: { type: string, enum: [UI, Performance, Support, Features, Other] }
+            created_at: { type: string }

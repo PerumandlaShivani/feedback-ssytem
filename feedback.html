@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedback • SmartTicket Feedback Portal</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3416/3416042.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/a2e0e6ad95.js" crossorigin="anonymous"></script>
+  <script defer src="main.js"></script>
+  <script defer src="feedback.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/3416/3416042.png" alt="logo"> SmartTicket Feedback</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+      <a class="active" href="feedback.html">Feedback</a>
+      <a href="my-feedback.html">My Feedback</a>
+      <a href="admin-dashboard.html">Admin</a>
+      <a id="logout-link" href="#">Logout</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="container section">
+  <div class="split">
+    <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1573496529574-be85d6a60704?auto=format&fit=crop&w=1400&q=60')"></div>
+    <div>
+      <div class="form-card">
+        <h2 style="margin-top:0">Share Your Experience</h2>
+        <form id="feedback-form">
+          <div class="input" style="margin-bottom:10px"><i class="fa-solid fa-user"></i><input name="name" placeholder="Name (optional)"></div>
+          <div class="input" style="margin-bottom:10px"><i class="fa-solid fa-envelope"></i><input name="email" type="email" placeholder="Email" required></div>
+          <div class="inline">
+            <div class="input" style="flex:1"><i class="fa-solid fa-tags"></i>
+              <select name="serviceType" required>
+                <option>Movie</option>
+              </select>
+            </div>
+          </div>
+          <div class="inline" style="margin-top:10px">
+            <div class="input" style="flex:1"><i class="fa-solid fa-globe"></i>
+              <select name="platform" required>
+                <option>Website</option><option>Mobile App</option><option>Customer Support</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top:10px">
+            <label class="helper">Rating (1–5)</label>
+            <div id="stars">
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+              <span class="star">★</span>
+            </div>
+            <input type="hidden" name="rating" value="0">
+          </div>
+          <div class="input" style="margin-top:10px"><i class="fa-solid fa-message"></i><input name="message" placeholder="Your feedback" required></div>
+          <div class="form-actions" style="margin-top:12px">
+            <div class="helper">Your Experience Matters!</div>
+            <button class="btn btn-primary" type="submit">Submit Feedback</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal" id="feedback-modal">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 style="margin:0">Feedback Received</h3>
+      <button id="close-modal" class="btn" onclick="document.getElementById('feedback-modal').classList.remove('active')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="feedback-result" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container">© 2025 SmartTicket Feedback Portal | Designed with 💙 to improve your experience</div></footer>
+</body>
+</html>

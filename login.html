@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login • SmartTicket</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3416/3416042.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/a2e0e6ad95.js" crossorigin="anonymous"></script>
+  <script defer src="main.js"></script>
+  <script defer src="auth.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/3416/3416042.png" alt="logo"> SmartTicket Feedback</a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="register.html">Register</a>
+        <a class="active" href="login.html">Login</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="my-feedback.html">My Feedback</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a id="logout-link" href="#">Logout</a>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="split">
+      <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1573496529574-be85d6a60704?auto=format&fit=crop&w=1400&q=60')">
+        <div class="overlay"></div>
+      </div>
+      <div style="display:grid;place-items:center;padding:20px">
+        <div class="form-card" style="width:100%;max-width:420px">
+          <h2 style="margin-top:0">Welcome back</h2>
+          <form id="login-form">
+            <div class="input" style="margin-bottom:10px"><i class="fa-solid fa-envelope"></i><input name="email" type="email" placeholder="Email" required></div>
+            <div class="input" style="margin-bottom:10px"><i class="fa-solid fa-lock"></i><input name="password" type="password" placeholder="Password" required></div>
+            <div class="helper" style="margin:6px 0"><a id="forgot-link" href="#">Forgot password?</a></div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Login</button>
+              <button type="button" id="guest-btn" class="btn">Continue as Guest</button>
+            </div>
+          </form>
+          <div class="helper" style="margin-top:10px">Don't have an account? <a class="link-highlight" href="register.html">Register</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="container">© 2025 SmartTicket Feedback Portal | Designed with 💙 to improve your experience</div></footer>
+</body>
+</html>

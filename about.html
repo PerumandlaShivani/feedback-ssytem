@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About • SmartTicket</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3416/3416042.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/a2e0e6ad95.js" crossorigin="anonymous"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/3416/3416042.png" alt="logo"> SmartTicket Feedback</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a class="active" href="about.html">About</a>
+      <a href="register.html">Register</a>
+      <a href="login.html">Login</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="my-feedback.html">My Feedback</a>
+      <a href="admin-dashboard.html">Admin</a>
+      <a id="logout-link" href="#">Logout</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="banner" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60')">
+      <div class="hero-content container">
+        <h1>About SmartTicket</h1>
+        <p>Designed with performance and simplicity using HTML, CSS, JavaScript, Node.js, and SQLite.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        <div class="card hoverable">
+          <h3 style="margin-top:0">Our Mission</h3>
+          <p>To make ticket booking delightful with a clean, fast, and intuitive experience.</p>
+        </div>
+        <div class="card hoverable">
+          <h3 style="margin-top:0">Tech Stack</h3>
+          <p>Front-end: HTML, CSS, Vanilla JS. Backend: Node.js + SQLite. Charts: Chart.js.</p>
+        </div>
+        <div class="card hoverable">
+          <h3 style="margin-top:0">Contact</h3>
+          <p>Email: support@smartticket.demo<br>Phone: +91 9494172573<br>Address: Ameerpet, Hyderabad</p>
+        </div>
+      </div>
+      <div class="cards" style="margin-top:16px">
+        <div class="card">
+          <h3 style="margin-top:0">Team</h3>
+          <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+            <div class="card hoverable" style="text-align:center"><div class="avatar">S</div><div><b>Shivani</b><div class="helper">Frontend Dev</div></div></div>
+            <div class="card hoverable" style="text-align:center"><div class="avatar">A</div><div><b>Abhinayasree</b><div class="helper">Backend Dev</div></div></div>
+            <div class="card hoverable" style="text-align:center"><div class="avatar">H</div><div><b>Harika</b><div class="helper">Designer</div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0">Get in touch</h3>
+          <form class="inline" onsubmit="toast('Message sent');this.reset();return false;">
+            <div class="input" style="flex:1"><i class="fa-solid fa-envelope"></i><input placeholder="Your email" required></div>
+            <div class="input" style="flex:2"><i class="fa-solid fa-message"></i><input placeholder="Your message" required></div>
+            <button class="btn btn-primary">Send</button>
+          </form>
+          <div style="margin-top:12px"><iframe title="map" src="https://maps.google.com/maps?q=Ameerpet%2C%20Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="220" style="border:0;border-radius:12px"></iframe></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container">© 2025 SmartTicket Online Portal | Designed with 💙 for easy booking</div></footer>
+</body>
+</html>

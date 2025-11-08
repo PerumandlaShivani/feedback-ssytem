@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Tickets • SmartTicket</title>
+  <meta name="description" content="Book movie, train, bus, or event tickets">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3416/3416042.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/a2e0e6ad95.js" crossorigin="anonymous"></script>
+  <script defer src="main.js"></script>
+  <script defer src="booking.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/3416/3416042.png" alt="logo"> SmartTicket</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a class="active" href="booking.html">Book</a>
+      <a href="my-tickets.html">My Tickets</a>
+      <a href="admin-dashboard.html">Admin</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login/Register</a>
+      <a id="logout-link" href="#">Logout</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="container section">
+  <div class="booking">
+    <div class="visual" style="background-image:url('https://images.unsplash.com/photo-1515165562835-c4c7b049f2d0?auto=format&fit=crop&w=1400&q=60')"></div>
+    <div>
+      <div class="form-card">
+        <h2 style="margin-top:0">Ticket Booking</h2>
+        <form id="booking-form">
+          <div class="input" style="margin-bottom:10px"><i class="fa-solid fa-user"></i><input name="name" placeholder="Full name" required></div>
+          <div class="input" style="margin-bottom:10px"><i class="fa-solid fa-envelope"></i><input name="email" type="email" placeholder="Email" required></div>
+          <div class="inline">
+            <div class="input" style="flex:1"><i class="fa-solid fa-tags"></i>
+              <select name="type" required>
+                <option>Movie</option>
+                <option>Train</option>
+                <option>Bus</option>
+                <option>Event</option>
+              </select>
+            </div>
+            <div class="input" style="flex:1"><i class="fa-solid fa-location-dot"></i><input name="target" placeholder="Destination / Event" required></div>
+          </div>
+          <div class="inline" style="margin-top:10px">
+            <div class="input" style="flex:1"><i class="fa-solid fa-calendar"></i><input name="date" type="date" required></div>
+            <div class="input" style="flex:.8"><i class="fa-solid fa-hashtag"></i><input name="tickets" type="number" min="1" value="1" required></div>
+          </div>
+          <div class="input" style="margin-top:10px"><i class="fa-solid fa-credit-card"></i>
+            <select name="pay" required>
+              <option>UPI</option><option>Card</option><option>Net Banking</option>
+            </select>
+          </div>
+          <div class="form-actions" style="margin-top:12px">
+            <div>Total: <span class="price" id="total-price">₹0</span></div>
+            <button class="btn btn-primary" type="submit">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal" id="confirm-modal">
+  <div class="modal-card">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3 style="margin:0">Your Ticket</h3>
+      <button id="close-modal" class="btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="confirm-body" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container">© 2025 SmartTicket Online Portal | Designed with 💙 for easy booking</div></footer>
+</body>
+</html>

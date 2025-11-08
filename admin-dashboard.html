@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard • SmartTicket</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3416/3416042.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/a2e0e6ad95.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script defer src="main.js"></script>
+  <script defer src="admin.js"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/3416/3416042.png" alt="logo"> SmartTicket Feedback</a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="my-feedback.html">My Feedback</a>
+      <a class="active" href="admin-dashboard.html">Admin</a>
+      <a href="about.html">About</a>
+      <a href="login.html">Login/Register</a>
+      <a id="logout-link" href="#">Logout</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+      <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main class="container section" id="bookings">
+  <div class="kpis">
+    <div class="kpi"><div><div class="helper">Total Feedbacks</div><div class="val" id="kpi-total">0</div></div><i class="fa-solid fa-message"></i></div>
+    <div class="kpi"><div><div class="helper">Avg Rating</div><div class="val" id="kpi-revenue">0</div></div><i class="fa-solid fa-star"></i></div>
+    <div class="kpi"><div><div class="helper">Positive Ratio</div><div class="val" id="kpi-popular">-</div></div><i class="fa-solid fa-thumbs-up"></i></div>
+    <div class="kpi"><div><div class="helper">Active Users</div><div class="val">–</div></div><i class="fa-solid fa-users"></i></div>
+  </div>
+
+  <div class="cards" style="margin-top:16px" id="reports">
+    <div class="card"><h3 style="margin-top:0">Avg Rating per Service</h3><canvas id="barService" height="180"></canvas></div>
+    <div class="card"><h3 style="margin-top:0">Feedback by Platform</h3><canvas id="doughPlatform" height="180"></canvas></div>
+    <div class="card"><h3 style="margin-top:0">Feedback Volume Trend</h3><canvas id="lineTrend" height="180"></canvas></div>
+  </div>
+
+  <div class="card" style="margin-top:16px;overflow:auto" id="users">
+    <div class="inline" style="margin-bottom:10px">
+      <div class="input" style="flex:1"><i class="fa-solid fa-filter"></i><input placeholder="Filter (demo)"></div>
+      <button id="export-csv" class="btn">Export CSV</button>
+      <button id="export-json" class="btn">Export JSON</button>
+    </div>
+    <table class="table">
+      <thead><tr><th>Booking ID</th><th>Service</th><th>Platform</th><th>Rating</th><th>Sentiment</th><th>Date</th></tr></thead>
+      <tbody id="admin-tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<style>
+  .float-nav{position:fixed;right:16px;bottom:16px;background:var(--card);border-radius:999px;box-shadow:var(--shadow);padding:8px 10px;display:flex;gap:8px;z-index:60}
+  .float-nav a{padding:8px 12px;border-radius:999px;color:var(--muted)}
+  .float-nav a:hover{background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff}
+  @media(max-width:768px){.float-nav{left:50%;transform:translateX(-50%);right:auto}}
+</style>
+<div class="float-nav">
+  <a href="#bookings">Bookings</a>
+  <a href="#users">Users</a>
+  <a href="#reports">Reports</a>
+  </div>
+
+<footer class="footer"><div class="container">© 2025 SmartTicket Online Portal | Designed with 💙 for easy booking</div></footer>
+<script>
+  // populate admin table from local data for demo
+  document.addEventListener('DOMContentLoaded',()=>{
+    const tbody=document.getElementById('admin-tbody'); if(!tbody) return; const data=JSON.parse(localStorage.getItem('st_tickets')||'[]');
+    tbody.innerHTML=data.map(t=>`<tr><td>${t.id}</td><td>${t.type}</td><td>${t.date}</td><td>${t.target}</td><td>${t.status}</td><td>₹${t.price}</td></tr>`).join('')||'<tr><td colspan="6">No bookings yet</td></tr>';
+  });
+</script>
+</body>
+</html>

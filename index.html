@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#007BFF">
+  <title>SmartTicket Feedback Portal</title>
+  <meta name="description" content="Share your ticketing experience and see insights.">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3416/3416042.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://kit.fontawesome.com/a2e0e6ad95.js" crossorigin="anonymous"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="https://cdn-icons-png.flaticon.com/512/3416/3416042.png" alt="logo"> SmartTicket Feedback</a>
+      <nav class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="register.html">Register</a>
+        <a href="login.html">Login</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="my-feedback.html">My Feedback</a>
+        <a href="admin-dashboard.html">Admin</a>
+        <a id="logout-link" href="#">Logout</a>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+        <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="banner" style="background-image:url('assets/hero-cinema.jpg')">
+        <div class="hero-content container">
+          <h1>Welcome to Smart Feedback System</h1>
+          <p>Share your thoughts and help us improve our services.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cards" style="margin-top:10px">
+          <div class="card hoverable" style="text-align:center">
+            <i class="fa-solid fa-user" style="font-size:38px;color:#3b82f6"></i>
+            <h3 style="margin:10px 0 6px">Guest User</h3>
+            <div class="helper">Submit feedback without creating an account</div>
+            <div style="margin-top:12px"><a class="btn btn-primary" href="feedback.html?guest=1">Give Feedback as Guest</a></div>
+          </div>
+          <div class="card hoverable" style="text-align:center">
+            <i class="fa-solid fa-user-check" style="font-size:38px;color:#64748b"></i>
+            <h3 style="margin:10px 0 6px">Registered User</h3>
+            <div class="helper">Login to track your feedback history</div>
+            <div style="margin-top:12px"><a class="btn" href="login.html">Login</a></div>
+          </div>
+          <div class="card hoverable" style="text-align:center">
+            <i class="fa-solid fa-user-plus" style="font-size:38px;color:#10b981"></i>
+            <h3 style="margin:10px 0 6px">New Here?</h3>
+            <div class="helper">Create an account to get started</div>
+            <div style="margin-top:12px"><a class="btn btn-primary" href="register.html">Sign Up</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2025 SmartTicket Feedback Portal | Designed with 💙 to improve your experience</div>
+  </footer>
+</body>
+</html>
